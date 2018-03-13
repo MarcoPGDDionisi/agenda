@@ -1,0 +1,106 @@
+﻿<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="col-lg-4" style="font-size:1.3em;">
+            Consulta por Email
+        </div>
+        <div class="col-lg-4">
+            <button type="submit" id="btn_voltar" class="btn btn-sm btn-primary"><strong>Voltar Agenda Telefônica</strong></button>
+
+        </div>
+    </div>
+</div>
+<div class="row">&nbsp;</div>
+
+<div class="row">
+    <table id="TbConsultaTelefone" class="table table-striped table-bordered" style="width:100%"></table>
+</div>
+
+<script type="text/javascript">
+
+    /*****************************************************************
+     Evento ==>  Voltar Agenda Telefonica
+    ******************************************************************/
+    $("#btn_voltar").on("click", function () {
+        window.open('/Home/Index', "_self");
+
+    })
+
+    var comum = {
+        post: function (metodo, objtJson) {
+            var obj
+            jQuery.ajax({
+                type: 'POST',
+                url: metodo,
+                data: objtJson,
+                async: false,
+                success: function (data) {
+                    obj = data;
+                }
+                ,
+                error: function (error) {
+                    alert(error.statusText);
+                }
+            });
+            return obj;
+        }
+    }
+
+    consulta_populateDataTable = function (IdContato) {
+
+        objList = comum.post('/Home/ConsultaEmail_SelectList/', null);
+
+        $('#TbConsultaTelefone').DataTable({
+            "data": objList.objList,
+            "dom": 'Bfrtip',
+            "async": "false",
+            "bDestroy": true,
+            "paging": false,
+            "extend": 'excelHtml5',
+            "pageLength": 50,
+            "scrollY": "200px",
+            "scrollCollapse": true,
+            "height": "600px",
+            "decimal": ",",
+            "thousands": ".",
+            "emptyTable": "No data available in table",
+            "language": {
+                "info": "",
+                "lengthMenu": "",
+                "infoFiltered": "(Filtrado de _MAX_ total registros)",
+                "processing": "<div><img src='~/images/waiting.gif' /></div>",
+                "search": "Busca:",
+                "loadingRecords": "Aguarde - Carregando Grid ...",
+                "zeroRecords": "Não foram licalizados Registros",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                }
+            },
+            "select": {
+                style: 'single',
+                info: false
+            },
+            columns: [
+                { title: "Contato", data: "Contato" },
+                { title: "Empresa", data: "Empresa" },
+                { title: "Email", data: "Email" }
+            ]
+        });
+    }
+
+        $(document).ready(function () {
+
+            consulta_populateDataTable();
+
+            $('#TbConsultaTelefone tbody').on('click', 'tr', function (e) {
+                row_data = $('#TbConsultaTelefone').DataTable().row(e.target._DT_CellIndex.row).data()
+                localStorage.setItem("Transf", JSON.stringify(row_data));
+                window.open('/Home/Contato', "_self");
+            });
+        })
+</script>
+

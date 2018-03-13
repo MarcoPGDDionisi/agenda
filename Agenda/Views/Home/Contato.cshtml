@@ -1,0 +1,225 @@
+﻿<!--######################## CADASTRO CONTATO #############################-->
+<div class="row ">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-3" style="font-size:1.3em;">
+                Cadastro de Contato
+            </div>
+            <div class="col-lg-9">
+                <button type="submit" id="btn_voltar" class="btn btn-sm btn-primary"><strong>Voltar Agenda Telefônica</strong></button>
+                <button type="submit" id="btn_agenda_consulta_Telefone" class="btn btn-sm btn-primary"><strong>Consulta por Telefone</strong></button>
+                <button type="submit" id="btn_agenda_consulta_Email" class="btn btn-sm btn-primary"><strong>Consulta por Email</strong></button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+
+    <div class="row ">
+
+        <div class="col-lg-8">
+            <div class="col-lg-2">
+                <label for="Nome">Contato:</label>
+            </div>
+            <div class="col-lg-6">
+                <input id="IdContato" type="hidden" value="0" />
+                <input type="text" id="Contato" placeholder="Nome do Contato" maxlength="150" style="width:100%;" />
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="col-lg-2">
+                <label for="Empresa">Empresa:</label>
+            </div>
+            <div class="col-lg-6">
+                <input type="text" id="Empresa" placeholder="Nome da Empresa" maxlength="150" style="width:100%;" />
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="col-lg-2">
+                <label for="Endereco">Endereço:</label>
+            </div>
+            <div class="col-lg-6">
+                <input type="text" id="Endereco" placeholder="Endereço" maxlength="150" style="width:100%;" />
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="col-lg-2">
+                &nbsp;
+            </div>
+            <div class="col-lg-6" style="text-align:left;">
+                <button type="submit" id="btn_contato_delete" class="btn btn-sm btn-primary"><strong>Excluir</strong></button>
+
+                <button type="submit" id="btn_contato_incluir" class="btn btn-sm btn-primary"><strong>Incluir</strong></button>
+                <button type="submit" id="btn_contato_save" class="btn btn-sm btn-primary"><strong>Salvar</strong></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-5">
+
+                <div class="row" style="font-size:1.3em;">
+                    Cadastro Telefone
+                    <input id="IdTelefone" type="hidden" value="0" />
+                </div>
+                <div class="row">&nbsp;</div>
+
+                <table style="width:100%;">
+
+                    <tr>
+
+                        <td>       <label for="TipoTelefone">Tipo:</label></td>
+                        <td>       <label for="UsoTelefone">classificação:</label></td>
+                        <td>       <label for="NumTelefone">Número:</label></td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <select style="width:80px;" id="TipoTelefone">
+                                <option value="0" selected>Selecionar</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Fixo">Fixo</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="UsoTelefone">
+                                <option value="0" selected>Selecionar</option>
+                                <option value="Casa">Casa</option>
+                                <option value="Empresa">Empresa</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </td>
+                        <td><input type="text" id="NumTelefone" placeholder="Número Telefone" maxlength="150" style="width:100%;" class="js_Mask_Phone_cel" /></td>
+                    </tr>
+                    <tr><td colspan="3">&nbsp;</td></tr>
+                    <tr>
+                        <td colspan="3" style="text-align:left;">
+                            <button type="submit" id="btn_telefone_delete" class="btn btn-sm btn-primary"><strong>Excluir</strong></button>
+                            <button type="submit" id="btn_telefone_incluir" class="btn btn-sm btn-primary"><strong>Incluir</strong></button>
+                            <button type="submit" id="btn_telefone_save" class="btn btn-sm btn-primary"><strong>Salvar</strong></button>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <table id="TbTelefone" class="table table-striped table-bordered" style="width:100%"></table>
+                </div>
+            </div>
+            <div class="col-lg-2" style="font-size:1.3em;">
+                &nbsp;
+            </div>
+            <div class="col-lg-5">
+                <div class="row" style="font-size:1.3em;">
+                    Cadastro de Email
+                    <input id="IdEmail" type="hidden" value="0" />
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row"><label for="Email">Email:</label></div>
+                <div class="row">
+                    <input type="text" Id="Email" placeholder="Email" maxlength="150" style="width:100%;" />
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row" style="text-align:left;">
+
+                    <button type="submit" id="btn_email_delete" class="btn btn-sm btn-primary"><strong>Excluir</strong></button>
+                    <button type="submit" id="btn_email_incluir" class="btn btn-sm btn-primary"><strong>Incluir</strong></button>
+                    <button type="submit" id="btn_email_save" class="btn btn-sm btn-primary"><strong>Salvar</strong></button>
+
+                </div>
+
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <table id="TbEmail" class="table table-striped table-bordered" style="width:100%"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/Views/contato_cadastro.js"></script>
+    <script src="~/Scripts/Views/contato_telefone.js"></script>
+    <script src="~/Scripts/Views/contato_email.js"></script>
+    <script type="text/javascript">
+
+        var comum = {
+            post: function (metodo, objtJson) {
+                var obj
+                jQuery.ajax({
+                    type: 'POST',
+                    url: metodo,
+                    data: objtJson,
+                    async: false,
+                    success: function (data) {
+                        obj = data;
+                    }
+                    ,
+                    error: function (error) {
+                        alert(error.statusText);
+                    }
+                });
+                return obj;
+            }
+        }
+        
+        /*****************************************************************
+         Evento ==>  Voltar Agenda Telefonica
+        ******************************************************************/
+        $("#btn_voltar").on("click", function () {
+            window.open('/Home/Index', "_self");
+
+        })
+
+        /*****************************************************************
+         Evento ==>  $("#btn_agenda_consulta_Telefone").click()
+        ******************************************************************/
+        $("#btn_agenda_consulta_Telefone").on("click", function () {
+            localStorage.setItem("Transf", null);
+            window.open('/Home/Consulta_Telefone', "_self");
+        })
+
+
+        /*****************************************************************
+         Evento ==>  $("#btn_agenda_consulta_Email").click()
+        ******************************************************************/
+        $("#btn_agenda_consulta_Email").on("click", function () {
+            localStorage.setItem("Transf", null);
+            window.open('/Home/Consulta_Email', "_self");
+        })
+
+        $(document).ready(function () {
+
+            contato = JSON.parse(localStorage.getItem("Transf"));          
+            if (contato === null) {
+                $("#btn_contato_incluir").click();
+            }
+            else {
+                contato_WriteInputs(contato);
+            }
+            
+            
+            $('#TbTelefone tbody').on('click', 'tr', function (e) {
+                row_data = $('#TbTelefone').DataTable().row(e.target._DT_CellIndex.row).data()
+                telefone_readWrite(row_data);
+            });
+
+            $('#TbEmail tbody').on('click', 'tr', function (e) {
+                row_data = $('#TbEmail').DataTable().row(e.target._DT_CellIndex.row).data()
+                Email_readWrite(row_data);
+            });
+        });
+    </script>
